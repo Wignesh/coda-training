@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"pack1","c":"HelloWorld","l":"HelloWorld()","u":"%3Cinit%3E()"}];updateSearchResults();
