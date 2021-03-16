@@ -11,3 +11,5 @@
 [**Day - 5**](https://github.com/Wignesh/coda-training/tree/Day-5)
 
 [**Day - 6**](https://github.com/Wignesh/coda-training/tree/Day-6)
+
+[**Day - 7**](https://github.com/Wignesh/coda-training/tree/Day-7)
