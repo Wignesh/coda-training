@@ -44,9 +44,9 @@ public class InterfaceDemo2 {
 }
 
 class MyInvocationHandler0 implements InvocationHandler {
-    Object obj[];
+    Object[] obj;
 
-    public MyInvocationHandler0(Object obj[]) {
+    public MyInvocationHandler0(Object[] obj) {
         this.obj = obj;
     }
 
@@ -54,7 +54,7 @@ class MyInvocationHandler0 implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         Object returnObject = null;
         for (Object o : obj) {
-            Method m[] = o.getClass().getDeclaredMethods();
+            Method[] m = o.getClass().getDeclaredMethods();
             for (Method met : m) {
                 if (met.getName().equals(method.getName())) {
                     met.setAccessible(true);

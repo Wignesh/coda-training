@@ -8,13 +8,13 @@ public class ReflectionDemo2 {
     public static void main(String[] args) throws Exception {
         //Dynamic object creation.... this can be used as a replacement for NEW keyword
         //new keyword is static and Class.forName(...) is dynamic
-        Demo d = (Demo) Class.forName("day8.Demo").getConstructor().newInstance();
+        Demo d = (Demo) Class.forName("ga.veee.day8.Demo").getConstructor().newInstance();
         String result = d.test("ramu", 30);
         System.out.println("The result is..:" + result);
 
-        d = (Demo) Class.forName("day8.Demo").getConstructor(String.class).newInstance("hello");
+        d = (Demo) Class.forName("ga.veee.day8.Demo").getConstructor(String.class).newInstance("hello");
 
-        Class.forName("day8.Demo").getConstructor(int.class).newInstance(100);
+        Class.forName("ga.veee.day8.Demo").getConstructor(int.class).newInstance(100);
 
         Field f[] = d.getClass().getFields();
         for (Field field : f) {
@@ -45,6 +45,7 @@ class DemoParent {
 
 class Demo extends DemoParent {
     public String f1, f2, f3;
+    private String f4, f5;
 
     public Demo() {
         System.out.println("Constructor without variable called...");
