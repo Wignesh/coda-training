@@ -71,18 +71,19 @@ class E implements D {
     }
 
     void executeA(A a) {
+        a.helloA1();
 
     }
 
     void executeB(B b) {
-
+        b.helloB1();
     }
 
     void executeC(C c) {
-
+        c.helloC1();
     }
 
     void executeD(D d) {
-
+        d.helloD1();
     }
 }
