@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e7c91832-3cab-42c4-9943-d92650310500" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/description.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/project-template.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Day_11.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coda-training.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ga/veee/day11/CallableDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ga/veee/day11/DeadLockDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ga/veee/day11/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ga/veee/day11/SingleObjectTwoThreadsOneTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ga/veee/day11/ThreadIntro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ga/veee/day11/ThreadLocalDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ga/veee/day11/TwoThreadDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ga/veee/day11/TwoThreadOneObj.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ga/veee/day11/TwoThreadOneObjLock.java" afterDir="false" />
-    </list>
+    <list default="true" id="e7c91832-3cab-42c4-9943-d92650310500" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -179,11 +158,11 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.CallableDemo" />
+      <item itemvalue="Application.SingleObjectTwoThreadsOneTask" />
       <item itemvalue="Application.ThreadIntro" />
       <item itemvalue="Application.TwoThreadDemo" />
       <item itemvalue="Application.TwoThreadOneObj" />
-      <item itemvalue="Application.SingleObjectTwoThreadsOneTask" />
-      <item itemvalue="Application.CallableDemo" />
     </list>
     <recent_temporary>
       <list>
@@ -216,6 +195,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
