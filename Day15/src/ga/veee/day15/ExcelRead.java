@@ -19,23 +19,18 @@ public class ExcelRead {
             workbook = Workbook.getWorkbook(new File(EXCEL_FILE_LOCATION));
 
             Sheet sheet = workbook.getSheet(0);
-            Cell cell1 = sheet.getCell(0, 0);
-            System.out.print(cell1.getContents() + ":");    // Test Count + :
-            Cell cell2 = sheet.getCell(0, 1);
-            System.out.println(cell2.getContents());        // 1
-
-            Cell cell3 = sheet.getCell(1, 0);
-            System.out.print(cell3.getContents() + ":");    // Result + :
-            Cell cell4 = sheet.getCell(1, 1);
-            System.out.println(cell4.getContents());        // Passed
-
-            System.out.print(cell1.getContents() + ":");    // Test Count + :
-            cell2 = sheet.getCell(0, 2);
-            System.out.println(cell2.getContents());        // 2
-
-            System.out.print(cell3.getContents() + ":");    // Result + :
-            cell4 = sheet.getCell(1, 2);
-            System.out.println(cell4.getContents());        // Passed 2
+            Cell[] header = sheet.getRow(0);
+            for (Cell cell : header) {
+                System.out.printf("%-10s",cell.getContents());
+            }
+            System.out.printf("\n%s\n","_".repeat(70));
+            for (int i = 1; i < sheet.getRows(); i++) {
+                Cell[] cells = sheet.getRow(i);
+                for (Cell cell : cells) {
+                    System.out.printf("%-10s",cell.getContents());
+                }
+                System.out.println();
+            }
 
         } catch (IOException | BiffException e) {
             e.printStackTrace();

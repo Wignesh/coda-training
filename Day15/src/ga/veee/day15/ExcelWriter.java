@@ -120,6 +120,6 @@ public class ExcelWriter {
         test.setOutputFile("excel.xls");
         test.write();
         System.out
-                .println("Please check the result file under c:/temp/lars.xls ");
+                .println("Please check the result file under excel.xls ");
     }
 }
