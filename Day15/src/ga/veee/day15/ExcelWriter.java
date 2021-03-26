@@ -28,7 +28,7 @@ public class ExcelWriter {
         wbSettings.setLocale(new Locale("en", "EN"));
 
         WritableWorkbook workbook = Workbook.createWorkbook(file, wbSettings);
-        workbook.createSheet("Report", 0);
+        workbook.createSheet("Marks", 0);
         WritableSheet excelSheet = workbook.getSheet(0);
         createLabel(excelSheet);
         createContent(excelSheet);
@@ -39,19 +39,13 @@ public class ExcelWriter {
 
     private void createLabel(WritableSheet sheet)
             throws WriteException {
-        // Lets create a times font
         WritableFont times10pt = new WritableFont(WritableFont.TIMES, 10);
-        // Define the cell format
         times = new WritableCellFormat(times10pt);
-        // Lets automatically wrap the cells
         times.setWrap(true);
-
-        // create create a bold font with unterlines
         WritableFont times10ptBoldUnderline = new WritableFont(
                 WritableFont.TIMES, 10, WritableFont.BOLD, false,
                 UnderlineStyle.SINGLE);
         timesBoldUnderline = new WritableCellFormat(times10ptBoldUnderline);
-        // Lets automatically wrap the cells
         timesBoldUnderline.setWrap(true);
 
         CellView cv = new CellView();
@@ -59,9 +53,13 @@ public class ExcelWriter {
         cv.setFormat(timesBoldUnderline);
         cv.setAutosize(true);
 
-        // Write a few headers
-        addCaption(sheet, 0, 0, "Header 1");
-        addCaption(sheet, 1, 0, "This is another header");
+        addCaption(sheet, 0, 0, "NAME");
+        addCaption(sheet, 1, 0, "M1");
+        addCaption(sheet, 2, 0, "M2");
+        addCaption(sheet, 3, 0, "M3");
+        addCaption(sheet, 4, 0, "M4");
+        addCaption(sheet, 5, 0, "M5");
+        addCaption(sheet, 6, 0, "TOTAL");
 
 
     }
@@ -69,29 +67,38 @@ public class ExcelWriter {
     private void createContent(WritableSheet sheet) throws WriteException,
             RowsExceededException {
         // Write a few number
-        for (int i = 1; i < 10; i++) {
-            // First column
-            addNumber(sheet, 0, i, i + 10);
-            // Second column
-            addNumber(sheet, 1, i, i * i);
+        addLabel(sheet, 0, 1, "VIGNESH");
+        addLabel(sheet, 0, 2, "VIJAY");
+        addLabel(sheet, 0, 3, "SURYA");
+        for (int i = 1; i <= 3; i++) {
+            for (int j = 1; j < 6; j++) {
+                    addNumber(sheet, i, i, j);
+            }
         }
+//        for (int i = 0; i < 5; i++) {
+//            for (int j = 1; j <= 3; j++) {
+//                for (int k = 1; k <= 5; k++) {
+//                    addNumber(sheet, i, j, k);
+//                }
+//            }
+//        }
         // Lets calculate the sum of it
-        StringBuffer buf = new StringBuffer();
-        buf.append("SUM(A2:A10)");
-        Formula f = new Formula(0, 10, buf.toString());
-        sheet.addCell(f);
-        buf = new StringBuffer();
-        buf.append("SUM(B2:B10)");
-        f = new Formula(1, 10, buf.toString());
-        sheet.addCell(f);
-
-        // now a bit of text
-        for (int i = 12; i < 20; i++) {
-            // First column
-            addLabel(sheet, 0, i, "Boring text " + i);
-            // Second column
-            addLabel(sheet, 1, i, "Another text");
-        }
+//        StringBuffer buf = new StringBuffer();
+//        buf.append("SUM(A2:A10)");
+//        Formula f = new Formula(0, 10, buf.toString());
+//        sheet.addCell(f);
+//        buf = new StringBuffer();
+//        buf.append("SUM(B2:B10)");
+//        f = new Formula(1, 10, buf.toString());
+//        sheet.addCell(f);
+//
+//        // now a bit of text
+//        for (int i = 12; i < 20; i++) {
+//            // First column
+//            addLabel(sheet, 0, i, "Boring text " + i);
+//            // Second column
+//            addLabel(sheet, 1, i, "Another text");
+//        }
     }
 
     private void addCaption(WritableSheet sheet, int column, int row, String s)
@@ -120,6 +127,6 @@ public class ExcelWriter {
         test.setOutputFile("excel.xls");
         test.write();
         System.out
-                .println("Please check the result file under excel.xls ");
+                .println("Please check the result file under org.excel.xls ");
     }
 }

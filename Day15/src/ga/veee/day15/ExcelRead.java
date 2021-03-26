@@ -11,6 +11,10 @@ import java.io.IOException;
 public class ExcelRead {
     private static final String EXCEL_FILE_LOCATION = "Marks.xls";
 
+    static void lineBreak(){
+        System.out.printf("\n%s\n","_".repeat(70));
+    }
+
     public static void main(String[] args) {
 
         Workbook workbook = null;
@@ -23,7 +27,7 @@ public class ExcelRead {
             for (Cell cell : header) {
                 System.out.printf("%-10s",cell.getContents());
             }
-            System.out.printf("\n%s\n","_".repeat(70));
+            lineBreak();
             for (int i = 1; i < sheet.getRows(); i++) {
                 Cell[] cells = sheet.getRow(i);
                 for (Cell cell : cells) {
@@ -31,7 +35,6 @@ public class ExcelRead {
                 }
                 System.out.println();
             }
-
         } catch (IOException | BiffException e) {
             e.printStackTrace();
         } finally {
