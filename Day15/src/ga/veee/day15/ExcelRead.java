@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class ExcelRead {
-    private static final String EXCEL_FILE_LOCATION = "Marks.xls";
+    private static final String EXCEL_FILE_LOCATION = "excel.xls";
 
     static void lineBreak(){
         System.out.printf("\n%s\n","_".repeat(70));

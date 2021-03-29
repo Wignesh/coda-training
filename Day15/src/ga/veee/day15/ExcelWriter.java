@@ -37,8 +37,7 @@ public class ExcelWriter {
         workbook.close();
     }
 
-    private void createLabel(WritableSheet sheet)
-            throws WriteException {
+    private void createLabel(WritableSheet sheet) throws WriteException {
         WritableFont times10pt = new WritableFont(WritableFont.TIMES, 10);
         times = new WritableCellFormat(times10pt);
         times.setWrap(true);
@@ -64,59 +63,34 @@ public class ExcelWriter {
 
     }
 
-    private void createContent(WritableSheet sheet) throws WriteException,
-            RowsExceededException {
-        // Write a few number
+    private void createContent(WritableSheet sheet) throws WriteException, RowsExceededException {
         addLabel(sheet, 0, 1, "VIGNESH");
         addLabel(sheet, 0, 2, "VIJAY");
         addLabel(sheet, 0, 3, "SURYA");
+
         for (int i = 1; i <= 3; i++) {
-            for (int j = 1; j < 6; j++) {
-                    addNumber(sheet, i, i, j);
+            for (int j = 1; j <= 5; j++) {
+                addNumber(sheet, j, i, j);
             }
         }
-//        for (int i = 0; i < 5; i++) {
-//            for (int j = 1; j <= 3; j++) {
-//                for (int k = 1; k <= 5; k++) {
-//                    addNumber(sheet, i, j, k);
-//                }
-//            }
-//        }
-        // Lets calculate the sum of it
-//        StringBuffer buf = new StringBuffer();
-//        buf.append("SUM(A2:A10)");
-//        Formula f = new Formula(0, 10, buf.toString());
-//        sheet.addCell(f);
-//        buf = new StringBuffer();
-//        buf.append("SUM(B2:B10)");
-//        f = new Formula(1, 10, buf.toString());
-//        sheet.addCell(f);
-//
-//        // now a bit of text
-//        for (int i = 12; i < 20; i++) {
-//            // First column
-//            addLabel(sheet, 0, i, "Boring text " + i);
-//            // Second column
-//            addLabel(sheet, 1, i, "Another text");
-//        }
+        sheet.addCell(new Formula(6, 1, "SUM(B2:F2)"));
+        sheet.addCell(new Formula(6, 2, "SUM(B3:F3)"));
+        sheet.addCell(new Formula(6, 3, "SUM(B4:F4)"));
     }
 
-    private void addCaption(WritableSheet sheet, int column, int row, String s)
-            throws RowsExceededException, WriteException {
+    private void addCaption(WritableSheet sheet, int column, int row, String s) throws RowsExceededException, WriteException {
         Label label;
         label = new Label(column, row, s, timesBoldUnderline);
         sheet.addCell(label);
     }
 
-    private void addNumber(WritableSheet sheet, int column, int row,
-                           Integer integer) throws WriteException, RowsExceededException {
+    private void addNumber(WritableSheet sheet, int column, int row, Integer integer) throws WriteException, RowsExceededException {
         jxl.write.Number number;
         number = new jxl.write.Number(column, row, integer, times);
         sheet.addCell(number);
     }
 
-    private void addLabel(WritableSheet sheet, int column, int row, String s)
-            throws WriteException, RowsExceededException {
+    private void addLabel(WritableSheet sheet, int column, int row, String s) throws WriteException, RowsExceededException {
         Label label;
         label = new Label(column, row, s, times);
         sheet.addCell(label);
@@ -126,7 +100,6 @@ public class ExcelWriter {
         ExcelWriter test = new ExcelWriter();
         test.setOutputFile("excel.xls");
         test.write();
-        System.out
-                .println("Please check the result file under org.excel.xls ");
+        System.out.println("Please check the result file under excel.xls ");
     }
 }
