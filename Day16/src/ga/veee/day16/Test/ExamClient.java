@@ -11,7 +11,7 @@ public class ExamClient {
     public static void main(String[] args) throws Exception {
         Exam exam = (Exam) Naming.lookup("rmi://localhost:1099/exam/startExam");
         Scanner scanner = new Scanner(System.in);
-        System.out.printf("Enter no of questions (1-%d) : ", 15);
+        System.out.printf("Enter no of questions (1-%d) : ", exam.getTotalNoQuestions());
         int noOfQuestions = scanner.nextInt();
 
         QuestionsModel questionsModel = exam.startExam(noOfQuestions, LocalTime.of(0, 0, 5, 0));

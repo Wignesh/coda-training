@@ -55,4 +55,9 @@ public class ExamService extends UnicastRemoteObject implements Exam {
         testDuration = LocalTime.now().plus(testDuration.toNanoOfDay(), ChronoUnit.NANOS);
         return new QuestionsModel(questionPool.getRandomQuestion(noOfQuestions), testDuration);
     }
+
+    @Override
+    public int getTotalNoQuestions() throws RemoteException {
+        return questionPool.getTotalNoQuestions();
+    }
 }

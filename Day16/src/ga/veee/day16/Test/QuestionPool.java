@@ -17,4 +17,8 @@ public class QuestionPool {
         Collections.shuffle(questions);
         return new ArrayList<Question>(questions.subList(0, count));
     }
+
+    public int getTotalNoQuestions() {
+        return questions.size();
+    }
 }
