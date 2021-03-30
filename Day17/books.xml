@@ -1,0 +1,31 @@
+<!DOCTYPE books SYSTEM "books.dtd">
+<books>
+    <book bid="1">
+        <name>JAVA</name>
+        <author>
+            <writter>
+                <first>
+                    James
+                </first>
+                <last>
+                    Bond
+                </last>
+            </writter>
+        </author>
+        <price>450</price>
+    </book>
+    <book bid="2">
+        <name>JAVA</name>
+        <author>
+            <writter>
+                <first>
+                    James
+                </first>
+                <last>
+                    Bond
+                </last>
+            </writter>
+        </author>
+        <price>350</price>
+    </book>
+</books>
