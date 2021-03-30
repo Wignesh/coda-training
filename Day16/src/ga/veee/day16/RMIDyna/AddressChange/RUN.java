@@ -3,7 +3,7 @@ package ga.veee.day16.RMIDyna.AddressChange;
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 
-public class PublicAddService {
+public class RUN {
 	public static void main(String[] args)throws Exception {
 		AddServiceImpl addservice=new AddServiceImpl();
 		

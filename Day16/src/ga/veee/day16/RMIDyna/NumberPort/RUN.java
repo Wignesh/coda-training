@@ -3,7 +3,7 @@ package ga.veee.day16.RMIDyna.NumberPort;
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 
-public class Test {
+public class RUN {
     public static void main(String[] args) throws Exception {
         NumberPortability number = new ZapNumberPort();
 
