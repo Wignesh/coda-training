@@ -2,15 +2,14 @@ package ga.veee.day17.XML.Interface;
 
 import ga.veee.day17.XML.XMLToMap;
 
-import java.rmi.RemoteException;
 import java.util.Map;
 
 public interface IXMLToMap {
-    String getMessage() throws RemoteException ;
+    String getMessage();
 
-    boolean isValidXML() throws RemoteException ;
+    boolean isValidXML();
 
-    XMLToMap newParser(String xsdPath, String xmlPath) throws RemoteException;
+    XMLToMap newParser(String xsdPath, String xmlPath);
 
-    Map<Object, Object> getMap() throws RemoteException ;
+    Map<Object, Object> getMap();
 }

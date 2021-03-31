@@ -1,20 +1,20 @@
 package ga.veee.day17.Billing;
 
 
+import ga.veee.day17.XML.XMLToMap;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.ss.util.RegionUtil;
 import org.apache.poi.util.IOUtils;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PoiEx {
 
@@ -554,45 +554,51 @@ public class PoiEx {
     }
 
     public static void main(String[] args) throws IOException, InvalidFormatException {
-        Invoice invoice = new Invoice();
-        invoice.addCompanyInfo("ABC CORP", "123, A Street,", "CHENNAI", "TAMILNADU", "INDIA", "600900", "9087654321", "abc-corp@abc.com");
-        invoice.addBillToInfo("A Person", "BCD CORP", "123, B Street,", "CHENNAI", "TAMILNADU", "INDIA", "900800", "8790654321", "bcd-corp@bcd.com");
-        invoice.addShipToInfo("B Person", "BCD CORP", "123, C Street,", "COIMBATORE", "TAMILNADU", "INDIA", "500600", "7098654321", "bcd-corp-cbe@bcd.com");
-        invoice.addInvoiceInfo(LocalDate.now(), LocalDate.now().plus(1, ChronoUnit.DAYS), 1, "PAY ASAP", "Remarks");
-        invoice.setTax(9, 9);
-        invoice.addItem(new InvoiceItem("PEN", 1, 1, 25));
-        invoice.addItem(new InvoiceItem("PAPER", 1, 2, 5));
-        invoice.setDiscountAmount(2);
-        invoice.setShippingCharges(12);
-        System.out.println(invoice.getTotalPayable());
+        XMLToMap xmlToMap = new XMLToMap("invoice.xsd", "invoice.xml");
+        if (xmlToMap.isValidXML()) {
+            Object invoiceMap =xmlToMap.getMap().get("Invoice");
+//            Object companyInfo = invoiceMap.get("CompanyInfo");
+            System.out.println(companyInfo.getClass().getName());
+            Invoice invoice = new Invoice();
+            invoice.addCompanyInfo("ABC CORP", "123, A Street,", "CHENNAI", "TAMILNADU", "INDIA", "600900", "9087654321", "abc-corp@abc.com");
+            invoice.addBillToInfo("A Person", "BCD CORP", "123, B Street,", "CHENNAI", "TAMILNADU", "INDIA", "900800", "8790654321", "bcd-corp@bcd.com");
+            invoice.addShipToInfo("B Person", "BCD CORP", "123, C Street,", "COIMBATORE", "TAMILNADU", "INDIA", "500600", "7098654321", "bcd-corp-cbe@bcd.com");
+            invoice.addInvoiceInfo(LocalDate.now(), LocalDate.now().plus(1, ChronoUnit.DAYS), 1, "PAY ASAP", "Remarks");
+            invoice.setTax(9, 9);
+            invoice.addItem(new InvoiceItem("PEN", 1, 1, 25));
+            invoice.addItem(new InvoiceItem("PAPER", 1, 2, 5));
+            invoice.setDiscountAmount(2);
+            invoice.setShippingCharges(12);
+            System.out.println(invoice.getTotalPayable());
 
-        Workbook workbook = new XSSFWorkbook();
-        Sheet sheet = workbook.createSheet("Invoice");
-        sheet.getPrintSetup().setPaperSize(PrintSetup.A4_PAPERSIZE);
-        sheet.setFitToPage(true);
-        int rowId = 0;
-        rowId = drawLine(workbook, sheet, rowId);
-        company(sheet, invoice);
-        billTo(sheet, invoice);
-        shipTo(sheet, invoice);
-        tableHeader(sheet);
-        rowId = tableBody(sheet, invoice.getInvoiceItems());
-        rowId = totals(sheet, rowId, invoice);
-        rowId = drawLine(workbook, sheet, rowId + 5);
-
-        workbook.setPrintArea(
-                0, //sheet index
-                0, //start column
-                14, //end column
-                0, //start row
-                60  //end row
-        );
-        format(sheet);
-
-        FileOutputStream fileOut = new FileOutputStream("Invoice.xlsx");
-        workbook.write(fileOut);
-        fileOut.close();
-
-        workbook.close();
+//            Workbook workbook = new XSSFWorkbook();
+//            Sheet sheet = workbook.createSheet("Invoice");
+//            sheet.getPrintSetup().setPaperSize(PrintSetup.A4_PAPERSIZE);
+//            sheet.setFitToPage(true);
+//            int rowId = 0;
+//            rowId = drawLine(workbook, sheet, rowId);
+//            company(sheet, invoice);
+//            billTo(sheet, invoice);
+//            shipTo(sheet, invoice);
+//            tableHeader(sheet);
+//            rowId = tableBody(sheet, invoice.getInvoiceItems());
+//            rowId = totals(sheet, rowId, invoice);
+//            rowId = drawLine(workbook, sheet, rowId + 5);
+//
+//            workbook.setPrintArea(
+//                    0, //sheet index
+//                    0, //start column
+//                    14, //end column
+//                    0, //start row
+//                    60  //end row
+//            );
+//            format(sheet);
+//
+//            FileOutputStream fileOut = new FileOutputStream("Invoice.xlsx");
+//            workbook.write(fileOut);
+//            fileOut.close();
+//
+//            workbook.close();
+        }
     }
 }

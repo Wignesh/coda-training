@@ -3,6 +3,7 @@ package ga.veee.day17.XML;
 import java.net.MalformedURLException;
 import java.rmi.AlreadyBoundException;
 import java.rmi.Naming;
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
@@ -15,6 +16,6 @@ public class RUN {
 
         System.out.println("XML To Map Service Deployed....");
 
-        Naming.bind("rmi://localhost:1099/service/xmlToMap", xmlToMap);
+        Naming.bind("rmi://localhost:1099/service/xmlToMap", (Remote) xmlToMap);
     }
 }

@@ -2,18 +2,15 @@ package ga.veee.day17.XML.Interface;
 
 import ga.veee.day17.XML.XMLValidator;
 
-import java.rmi.Remote;
-import java.rmi.RemoteException;
+public interface IXMLValidator {
 
-public interface IXMLValidator extends Remote {
-
-    String getMessage() throws RemoteException;
+    String getMessage();
 
 
-    boolean isValidXML() throws RemoteException;
+    boolean isValidXML();
 
 
-    XMLValidator newValidation(String xsdPath, String xmlPath) throws RemoteException;
+    XMLValidator newValidation(String xsdPath, String xmlPath);
 
 
 }

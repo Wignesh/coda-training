@@ -13,33 +13,29 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.Serializable;
-import java.rmi.RemoteException;
-import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class XMLToMap extends UnicastRemoteObject implements Serializable, IXMLToMap {
+public class XMLToMap implements IXMLToMap {
 
     private static XMLValidator xmlValidator;
     private String message;
     private boolean isValid;
     private HashMap<Object, Object> map;
 
-    XMLToMap() throws RemoteException {
-
+    public XMLToMap() {
     }
 
-    public XMLToMap(String xsdPath, String xmlPath) throws RemoteException {
+    public XMLToMap(String xsdPath, String xmlPath) {
         xmlValidator = new XMLValidator(xsdPath, xmlPath);
         this.isValid = xmlValidator.isValidXML();
         this.message = xmlValidator.getMessage();
         this.parse(xmlPath);
     }
 
-    public Map<Object, Object> getMap() throws RemoteException {
+    public Map<Object, Object> getMap() {
         return map;
     }
 
@@ -135,17 +131,17 @@ public class XMLToMap extends UnicastRemoteObject implements Serializable, IXMLT
     }
 
     @Override
-    public String getMessage() throws RemoteException {
+    public String getMessage() {
         return this.message;
     }
 
     @Override
-    public boolean isValidXML() throws RemoteException {
+    public boolean isValidXML() {
         return this.isValid;
     }
 
     @Override
-    public XMLToMap newParser(String xsdPath, String xmlPath) throws RemoteException {
+    public XMLToMap newParser(String xsdPath, String xmlPath) {
         xmlValidator = new XMLValidator(xsdPath, xmlPath);
         this.isValid = xmlValidator.isValidXML();
         this.message = xmlValidator.getMessage();

@@ -10,25 +10,23 @@ import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 import java.io.File;
 import java.io.IOException;
-import java.io.Serializable;
-import java.rmi.RemoteException;
 
-public class XMLValidator implements Serializable, IXMLValidator {
+public class XMLValidator implements IXMLValidator {
     private String message;
     private boolean isValid;
 
     @Override
-    public String getMessage() throws RemoteException {
+    public String getMessage() {
         return this.message;
     }
 
     @Override
-    public boolean isValidXML() throws RemoteException {
+    public boolean isValidXML() {
         return this.isValid;
     }
 
     @Override
-    public XMLValidator newValidation(String xsdPath, String xmlPath) throws RemoteException {
+    public XMLValidator newValidation(String xsdPath, String xmlPath) {
         validate(xsdPath, xmlPath);
         return this;
     }
