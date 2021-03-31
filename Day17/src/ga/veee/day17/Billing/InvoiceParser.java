@@ -1,4 +1,5 @@
-package ga.veee.day17;
+package ga.veee.day17.Billing;
+
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -8,20 +9,27 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.FileInputStream;
 
-public class SAXParsing {
+public class InvoiceParser {
     public static void main(String[] args) throws Exception {
         SAXParserFactory spf = SAXParserFactory.newInstance();
 
         SAXParser sp = spf.newSAXParser();
-
-        sp.parse(new FileInputStream("invoice.xml"), new MyProcessingHandler());
+        sp.parse(new FileInputStream("invoice.xml"), new InvoiceProcessor());
     }
 }
 
-class MyProcessingHandler extends DefaultHandler {
+class InvoiceProcessor extends DefaultHandler {
+
+    private static Invoice invoice;
+
+    Invoice getInvoice() {
+        return invoice;
+    }
+
     @Override
     public void startDocument() throws SAXException {
         System.out.println("parsing started....");
+        invoice = new Invoice();
     }
 
     @Override
@@ -32,7 +40,7 @@ class MyProcessingHandler extends DefaultHandler {
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         System.out.println(qName);
-        System.out.print("<" + qName + ">");
+//        System.out.print("<" + qName + ">");
 //        int length = attributes.getLength();
 //        for (int i = 0; i < length; i++) {
 //            System.out.print(attributes.getQName(i) + "=\"");
@@ -42,40 +50,12 @@ class MyProcessingHandler extends DefaultHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        System.out.println("</" + qName + ">");
+//        System.out.println("</" + qName + ">");
     }
 
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
         String s = new String(ch, start, length);
-        System.out.print(s.strip());
+//        System.out.print(s.strip());
     }
-
 }
-/*
-	*<invoice invno="1010a">
-	*	<items>
-	*		<item id="a001">
-	*			<itemname>daal</itemname>
-	*			<unit>kg</unit>
-	*			<price>12-</price>
-	*			<qty>2</qty>
-	*		</item>
-			<item id="a001">
-	*			<itemname>daal</itemname>
-	*			<unit>kg</unit>
-	*			<price>12-</price>
-	*			<qty>2</qty>
-	*		</item>
-	*</items>
-	*</invoice>
-	*
-	*<reportcard>
-	*	<studentname></studentname>
-	*	<subject>
-	*		<subjectname>physics</subjectname>
-	*		<marks>50</marks>
-	*	</subject>
-	*
-	*</reportcard>
-*/

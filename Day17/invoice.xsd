@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.veee.ga"
+           xmlns="https://www.veee.ga"
+           elementFormDefault="qualified">
+    <xs:element name="Invoice">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="CompanyInfo">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="CompanyName"/>
+                            <xs:element name="Address">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="Street"/>
+                                        <xs:element type="xs:string" name="City"/>
+                                        <xs:element type="xs:string" name="State"/>
+                                        <xs:element type="xs:string" name="Country"/>
+                                        <xs:element type="xs:string" name="Zip"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element type="xs:string" name="Phone"/>
+                            <xs:element type="xs:string" name="Email"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="BillToInfo">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="ContactName"/>
+                            <xs:element type="xs:string" name="CompanyName"/>
+                            <xs:element name="Address">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="Street"/>
+                                        <xs:element type="xs:string" name="City"/>
+                                        <xs:element type="xs:string" name="State"/>
+                                        <xs:element type="xs:string" name="Country"/>
+                                        <xs:element type="xs:string" name="Zip"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element type="xs:string" name="Phone"/>
+                            <xs:element type="xs:string" name="Email"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="ShipToInfo">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="ContactName"/>
+                            <xs:element type="xs:string" name="CompanyName"/>
+                            <xs:element name="Address">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="Street"/>
+                                        <xs:element type="xs:string" name="City"/>
+                                        <xs:element type="xs:string" name="State"/>
+                                        <xs:element type="xs:string" name="Country"/>
+                                        <xs:element type="xs:string" name="Zip"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element type="xs:string" name="Phone"/>
+                            <xs:element type="xs:string" name="Email"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="InvoiceInfo">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="Date"/>
+                            <xs:element type="xs:string" name="DueDate"/>
+                            <xs:element type="xs:string" name="ID"/>
+                            <xs:element type="xs:string" name="Comment"/>
+                            <xs:element type="xs:string" name="Remarks"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="TaxInfo">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:float" name="CGST"/>
+                            <xs:element type="xs:float" name="SGST"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element type="xs:float" name="Discount"/>
+                <xs:element type="xs:float" name="ShippingCharges"/>
+                <xs:element name="Items">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Item" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="ID"/>
+                                        <xs:element type="xs:string" name="Description"/>
+                                        <xs:element type="xs:int" name="Quantity"/>
+                                        <xs:element type="xs:float" name="UnitPrice"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

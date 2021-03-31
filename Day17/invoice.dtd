@@ -1,0 +1,32 @@
+<!ELEMENT Invoice (CompanyInfo,BillToInfo,ShipToInfo,InvoiceInfo,TaxInfo,Discount,ShippingCharges,Items)>
+
+        <!ELEMENT CompanyInfo (CompanyName,Address,Phone,Email)>
+        <!ELEMENT BillToInfo (ContactName,CompanyName,Address,Phone,Email)>
+        <!ELEMENT ShipToInfo (ContactName,CompanyName,Address,Phone,Email)>
+        <!ELEMENT InvoiceInfo (Date,DueDate,ID,Comment,Remarks)>
+        <!ELEMENT TaxInfo (CGST,SGST)>
+        <!ELEMENT Address (Street,City,State,Country,Zip)>
+        <!ELEMENT Items (Item)+>
+        <!ELEMENT Item (ID,Description,Quantity,UnitPrice)>
+
+        <!ELEMENT ContactName (#PCDATA)>
+        <!ELEMENT CompanyName (#PCDATA)>
+        <!ELEMENT Street (#PCDATA)>
+        <!ELEMENT City (#PCDATA)>
+        <!ELEMENT State (#PCDATA)>
+        <!ELEMENT Country (#PCDATA)>
+        <!ELEMENT Zip (#PCDATA)>
+        <!ELEMENT Phone (#PCDATA)>
+        <!ELEMENT Email (#PCDATA)>
+        <!ELEMENT Date (#PCDATA)>
+        <!ELEMENT DueDate (#PCDATA)>
+        <!ELEMENT ID (#PCDATA)>
+        <!ELEMENT Comment (#PCDATA)>
+        <!ELEMENT Remarks (#PCDATA)>
+        <!ELEMENT CGST (#PCDATA)>
+        <!ELEMENT SGST (#PCDATA)>
+        <!ELEMENT ShippingCharges (#PCDATA)>
+        <!ELEMENT Discount (#PCDATA)>
+        <!ELEMENT Description (#PCDATA)>
+        <!ELEMENT Quantity (#PCDATA)>
+        <!ELEMENT UnitPrice (#PCDATA)>

@@ -3,7 +3,6 @@ package ga.veee.day17;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -33,41 +32,3 @@ public class XMLProcessing {
 
     }
 }
-/*
- * Document
- *	documentElement - Element(RootElement)
- *  getElementsByTagName(n) - NodeList
- *  createElement(e)-n
- *  createTextNode(e)-n
- *  createAttribute(e)-n
- *
- * Element  (kind of Node)
- *
- * Node
- * 	getNodeName()-String
- *  getNodeValue() - String
- *  getNodeType() - int
- *  getChildNodes()- NodeList
- *  attributes - NamedNodeMap
- *  hasChildNodes() - boolean
- *  getChildNodes() - NodeList
- *  previousSibling() - node
- *  nextSibling() - node
- *  getLastChild() - node
- *  getFirstChild() - node
- *  appendChild(n)-n
- *  insertBefore(n,n)-n
- *  cloneNode(n)-n
- *  removeNode(n)-n
- *  getElementsByTagName(n) - NodeList
- *
- * NodeList
- *  length() - int
- *  item(i) - node
- *
- * NamedNodeMap
- * 	length() - int
- * 	getNamedItem() - node
- 	setNamedItem()-node
- 	removeNamedItem()-node
-*/

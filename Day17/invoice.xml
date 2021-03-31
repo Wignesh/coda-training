@@ -1,8 +1,9 @@
-<Invoice>
+<?xml version="1.0"?>
+<Invoice xmlns="https://www.veee.ga" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="">
     <CompanyInfo>
-        <Name>
+        <CompanyName>
             ABC Corp
-        </Name>
+        </CompanyName>
         <Address>
             <Street>
                 123, A Street
@@ -122,13 +123,13 @@
     </ShippingCharges>
     <Items>
         <Item>
-            <Id>1</Id>
+            <ID>1</ID>
             <Description>Pen</Description>
             <Quantity>1</Quantity>
             <UnitPrice>25</UnitPrice>
         </Item>
         <Item>
-            <Id>2</Id>
+            <ID>2</ID>
             <Description>Paper</Description>
             <Quantity>2</Quantity>
             <UnitPrice>5</UnitPrice>
