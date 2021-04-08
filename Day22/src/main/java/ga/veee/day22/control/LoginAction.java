@@ -23,12 +23,13 @@ public class LoginAction extends Action {
 
         LoginServiceImpl loginService = LoginServiceImpl.getLoginService();
         loginService.setUserDAO(UserDAOImpl.getUserDaoImpl(dbConfigProp));
-        HttpSession session=request.getSession();
+        HttpSession session = request.getSession();
 
         if (loginService.checkUser(uname, upass)) {
             if (loginService.checkFlag(uname)) {
                 loginService.updateFlag(uname, 1);
-                session.setAttribute("uname",uname);
+                session.setAttribute("uname", uname);
+
                 return "login.success";
             } else {
                 return "login.already";

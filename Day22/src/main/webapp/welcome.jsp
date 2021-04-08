@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="ISO-8859-1">
-    <title>Welcome </title>
+    <title>Welcome</title>
 </head>
 <body>
 <h1>Welcome to our Shopping Site <%=session.getAttribute("uname") %>

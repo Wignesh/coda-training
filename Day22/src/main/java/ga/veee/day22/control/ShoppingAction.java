@@ -26,7 +26,8 @@ public class ShoppingAction extends Action {
             if (name.equals("formid") || name.equals("shopid")) {
 
             } else {
-                session.setAttribute(name, value);
+                if (Integer.parseInt(value) > 0)
+                    session.setAttribute(name, value);
             }
         }
         return shopid;

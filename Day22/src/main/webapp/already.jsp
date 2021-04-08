@@ -11,7 +11,7 @@
     <title>Already Login</title>
 </head>
 <body>
-<h1>You are already logged in<a href="index.jsp">Click Here to Re-login...</a></h1>
+<h1>You are already logged in<a href="login.jsp">Click Here to Re-login...</a></h1>
 
 </body>
 </html>
