@@ -1,3 +1,4 @@
+<%@ page import="java.util.Enumeration" %>
 <%--
   Created by IntelliJ IDEA.
   User: vignesh
@@ -7,10 +8,21 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>Processing.....</title>
+</head>
+<body>
+<%
+    Enumeration<String> e = session.getAttributeNames();
+    while (e.hasMoreElements()) {
+        String name = e.nextElement();
+        if (!name.equals("uname")) {
+            String value = (String) session.getAttribute(name);
+            session.removeAttribute(name);
+        }
+    }
+    response.sendRedirect("cart.jsp");
+
+%>
+</body>
 </html>

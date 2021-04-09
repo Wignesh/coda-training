@@ -28,22 +28,20 @@
         if (!name.equals("uname")) {
             String value = (String) session.getAttribute(name);
             out.println(name + ":" + value);
-            ids.add(Integer.parseInt(name.substring(name.length() - 1)));
+            ids.add(Integer.parseInt(name));
         }
     }
-//    System.out.println(ids.size());
-//    Properties dbConfigProp = (Properties) request.getServletContext().getAttribute("dbConfigProp");
-//    ItemDAOImpl itemDAOImpl = ItemDAOImpl.getItemDaoImpl(dbConfigProp);
-//    Set<ItemDTO> items = itemDAOImpl.findInIds(ids);
-//
-//    for (ItemDTO item : items) {
-//        out.println(item.getDescription());
-//    }
+    System.out.println(ids.size());
+    Properties dbConfigProp = (Properties) request.getServletContext().getAttribute("dbConfigProp");
+    ItemDAOImpl itemDAOImpl = ItemDAOImpl.getItemDaoImpl(dbConfigProp);
+    Set<ItemDTO> items = itemDAOImpl.findInIds(ids);
+    if(items!=null) {
+        for (ItemDTO item : items) {
+            out.println(item.getDescription());
+        }
+    }
 
 %>
-<form action="shopping.do" method="post">
-    <input type="hidden" name="formid" value="GoShop">
-    <input type="submit" value="Home">
-</form>
+<a href="clear-cart.jsp">Clear Cart</a>
 </body>
 </html>
