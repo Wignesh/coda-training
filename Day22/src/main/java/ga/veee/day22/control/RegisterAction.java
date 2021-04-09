@@ -18,8 +18,8 @@ public class RegisterAction extends Action {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        String uname = request.getParameter("uname");
-        String upass = request.getParameter("upass");
+        String uname = request.getParameter("username");
+        String upass = request.getParameter("password");
 
         LoginServiceImpl loginService = LoginServiceImpl.getLoginService();
         loginService.setUserDAO(UserDAOImpl.getUserDaoImpl(dbConfigProp));

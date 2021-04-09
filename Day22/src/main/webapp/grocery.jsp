@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Vegetable Shop</title>
+    <title>Grocery Shop</title>
     <style>
         .items {
             display: flex;
@@ -29,13 +29,13 @@
     </style>
 </head>
 <body>
-<h1>Vegetable Shop</h1>
-<%@ include file="logout.jsp" %>
-<form action="shop.do" method="post">
-    <input type="submit" value="Next Shop">
+<%@ include file="Nav.jsp" %>
+<h1>Grocery</h1>
+<form action="shop.do" method="POST">
+    <input type="submit" value="Add To Cart">
     <div class="items">
         <input type="hidden" name="formid" value="Shop">
-        <input type="hidden" name="shopid" value="shop1">
+        <input type="hidden" name="shopid" value="shop3">
         <%
             Properties dbConfigProp = (Properties) request.getServletContext().getAttribute("dbConfigProp");
             ItemDAOImpl itemDAOImpl = ItemDAOImpl.getItemDaoImpl(dbConfigProp);

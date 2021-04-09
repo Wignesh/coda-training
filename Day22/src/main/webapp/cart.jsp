@@ -17,8 +17,9 @@
     <title>Invoice</title>
 </head>
 <body>
+
+<%@ include file="Nav.jsp" %>
 <h1>Invoice</h1>
-<%@ include file="logout.jsp" %>
 <%
     Enumeration<String> e = session.getAttributeNames();
     ArrayList<Integer> ids = new ArrayList<>();
@@ -27,7 +28,7 @@
         if (!name.equals("uname")) {
             String value = (String) session.getAttribute(name);
             out.println(name + ":" + value);
-            ids.add(Integer.parseInt(name));
+            ids.add(Integer.parseInt(name.substring(name.length() - 1)));
         }
     }
 //    System.out.println(ids.size());

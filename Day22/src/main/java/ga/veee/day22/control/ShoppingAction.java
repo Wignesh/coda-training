@@ -17,19 +17,19 @@ public class ShoppingAction extends Action {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        String shopid = request.getParameter("shopid");
+        String shopId = request.getParameter("shopId");
         Enumeration<String> e = request.getParameterNames();
         HttpSession session = request.getSession();
         while (e.hasMoreElements()) {
             String name = e.nextElement();
             String value = request.getParameter(name);
-            if (name.equals("formid") || name.equals("shopid")) {
+            if (name.equals("formId") || name.equals("shopId")) {
 
             } else {
                 if (Integer.parseInt(value) > 0)
                     session.setAttribute(name, value);
             }
         }
-        return shopid;
+        return shopId;
     }
 }

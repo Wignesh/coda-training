@@ -2,6 +2,7 @@ package ga.veee.day22.daopack;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public interface ItemDAO {
@@ -11,7 +12,7 @@ public interface ItemDAO {
 
     public Set<ItemDTO> findAllByCat(String category);
 
-    public Set<ItemDTO> findInIds(ArrayList<Integer> ids);
+    public Set<ItemDTO> findInIds(List<Integer> ids);
 
     public int insertItem(ItemDTO itemDTO);
 

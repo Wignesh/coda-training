@@ -87,16 +87,27 @@ public class ItemDAOImpl implements ItemDAO, Cloneable {
     }
 
     @Override
-    public Set<ItemDTO> findInIds(ArrayList<Integer> ids) {
+    public Set<ItemDTO> findInIds(List<Integer> ids) {
         try {
             System.out.println(ids);
             Connection connection = ConnectionManager.getConnection(dbConfigProp);
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM ITEM_MASTER WHERE ID IN = (?)");
-            statement.setArray(1, (Array) ids);
+            List<Integer> empNoList = ids;
+
+            List<String> parameters = new ArrayList<>();
+            empNoList.forEach(empNo -> parameters.add("?"));   //Use forEach to add required no. of '?'
+            String commaSepParameters = String.join(",", parameters); //Use String to join '?' with ','
+
+            StringBuilder selectQuery = new StringBuilder().append("SELECT COUNT(EMP_ID) FROM EMPLOYEE WHERE EMP_ID IN (").append(commaSepParameters).append(")");
+
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM ITEM_MASTER WHERE ITEM_ID IN = (?)");
+            Array array = connection.createArrayOf("integer", ids.toArray());
+            System.out.println("array");
+            System.out.println(array);
+            statement.setArray(1, array);
             Set<ItemDTO> items = new HashSet<>();
             ResultSet resultSet = statement.executeQuery();
-            System.out.println(resultSet.getFetchSize());
             while (resultSet.next()) {
+                System.out.println(1);
                 ItemDTO item = new ItemDTO();
                 item.setItemId(resultSet.getInt(1));
                 item.setDescription(resultSet.getString(2));
@@ -110,6 +121,7 @@ public class ItemDAOImpl implements ItemDAO, Cloneable {
 
         } catch (Exception e) {
             ConnectionManager.closeConnection(e, null);
+            e.printStackTrace();
         }
         return null;
     }

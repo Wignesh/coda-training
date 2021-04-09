@@ -11,8 +11,8 @@ public class RequestProcessor {
         try {
             Properties configProp = (Properties) request.getServletContext().getAttribute("configProp");
             Properties dbConfigProp = (Properties) request.getServletContext().getAttribute("dbConfigProp");
-            String formid = request.getParameter("formid");
-            String actionClass = configProp.getProperty(formid);
+            String formId = request.getParameter("formId");
+            String actionClass = configProp.getProperty(formId);
 
             Action action = (Action) Class.forName(actionClass).getConstructor(Properties.class).newInstance(dbConfigProp);
             String result = action.execute(request, response);

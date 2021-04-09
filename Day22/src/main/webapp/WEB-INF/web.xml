@@ -25,6 +25,7 @@
             <param-name>dbconfig</param-name>
             <param-value>/WEB-INF/dbconfig.properties</param-value>
         </init-param>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>ActionServlet</servlet-name>

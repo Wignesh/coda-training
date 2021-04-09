@@ -29,10 +29,10 @@
     </style>
 </head>
 <body>
-<h1>Fruit Shop</h1>
-<%@ include file="logout.jsp" %>
-<form action="shop.do" method="post">
-    <input type="submit" value="Next Shop">
+<%@ include file="Nav.jsp" %>
+<h1>Fruits</h1>
+<form action="shop.do" method="POST">
+    <input type="submit" value="Add To Cart">
     <div class="items">
         <input type="hidden" name="formid" value="Shop">
         <input type="hidden" name="shopid" value="shop2">

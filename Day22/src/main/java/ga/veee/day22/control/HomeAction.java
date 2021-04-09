@@ -9,7 +9,6 @@ public class HomeAction extends Action {
     }
 
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        String formid = request.getParameter("actionid");
-        return formid.equals("login") ? "login" : "register";
+        return request.getParameter("actionId");
     }
 }
