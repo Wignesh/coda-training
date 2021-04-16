@@ -1,4 +1,4 @@
-package codaws;
+package soap;
 
 import java.net.URL;
 
@@ -10,7 +10,7 @@ public class HelloClient {
 		
 		URL url=new URL("http://localhost:8080/ws/helloService?wsdl");
 		
-		QName qName=new QName("http://codaws/","HelloServiceImplService");
+		QName qName=new QName("http://soap/","HelloServiceImplService");
 		
 		Service service=Service.create(url,qName);
 		

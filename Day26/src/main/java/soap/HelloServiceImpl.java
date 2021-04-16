@@ -1,10 +1,12 @@
-package codaws;
+package soap;
 
+import javax.jws.HandlerChain;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
-@WebService(endpointInterface = "codaws.HelloService")
-public class HelloServiceImpl implements HelloService{
+//@HandlerChain(file = "soap/handler.xml")
+@WebService(endpointInterface = "soap.HelloService")
+public class HelloServiceImpl implements HelloService {
 	
 @WebMethod
 @Override
