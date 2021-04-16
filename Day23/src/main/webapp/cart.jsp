@@ -10,6 +10,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
 </head>
 <body>
@@ -19,31 +21,45 @@
     <div class="cart-container">
         <h2 class="shopping-cart-text">Shopping Cart</h2>
 
-        <div class="cart-header">
-            <div class="cart-div-image">
-                <h6>IMAGE</h6>
-            </div>
-            <div class="cart-div-description">
-                <h6>DESCRIPTION</h6>
-            </div>
-            <div class="cart-div-unit-price">
-                <h6>UNIT PRICE</h6>
-            </div>
-            <div class="cart-div-quantity">
-                <h6>Quantity</h6>
-            </div>
-            <div class="cart-div-sub-total">
-                <h6>SUBTOTAL</h6>
-            </div>
-            <div class="cart-div-action">
-                <h6>REMOVE</h6>
-            </div>
-        </div>
+        <%
+            if (count > 0) {
+                out.println("        <div class=\"cart-header\">\n" +
+                        "            <div class=\"cart-div-image\">\n" +
+                        "                <h6>IMAGE</h6>\n" +
+                        "            </div>\n" +
+                        "            <div class=\"cart-div-description\">\n" +
+                        "                <h6>DESCRIPTION</h6>\n" +
+                        "            </div>\n" +
+                        "            <div class=\"cart-div-unit-price\">\n" +
+                        "                <h6>UNIT PRICE</h6>\n" +
+                        "            </div>\n" +
+                        "            <div class=\"cart-div-quantity\">\n" +
+                        "                <h6>Quantity</h6>\n" +
+                        "            </div>\n" +
+                        "            <div class=\"cart-div-sub-total\">\n" +
+                        "                <h6>SUBTOTAL</h6>\n" +
+                        "            </div>\n" +
+                        "            <div class=\"cart-div-action\">\n" +
+                        "                <h6>REMOVE</h6>\n" +
+                        "            </div>\n" +
+                        "        </div>");
+            }
+        %>
+
 
         <Shop:CartList/>
+        <%
+            if (count == 0) {
+                out.println("        <div class=\"empty-cart\">\n" +
+                        "            <h1>Your cart is empty</h1>\n" +
+                        "            <a href=\"welcome.jsp#catogeries\" class=\"hero-button\">Shop Now</a>\n" +
+                        "\n" +
+                        "        </div>");
+            }
+
+        %>
 
     </div>
 </section>
-<%--<a href="clear-cart.jsp">Clear Cart</a>--%>
 </body>
 </html>

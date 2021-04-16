@@ -17,12 +17,27 @@
     }
 %>
 <div class="auth-page">
+    <div class="auth-container-right">
+        <div class="auth-page-hero-flex">
+            <div class="auth-hero-container">
+                <div class="auth-hero-bg-rounded"></div>
+                <img class="auth-hero-image" src="https://i.imgur.com/wrqF9dW.png" alt="" />
+            </div>
+            <div class="auth-hero-body">
+                <h1>Fresh <span>Grocery</span><br />Shopping</h1>
+                <p>100 Healthy & Affortable</p>
+                <button class="hero-button">Shop Now</button>
+            </div>
+        </div>
+
+    </div>
+
     <div class="auth-container-left">
         <div class="auth-container">
             <div class="login-container" id="login-container">
                 <form id="loginForm" action="login.do" method="POST">
                     <input type="hidden" name="formId" value="Login" />
-                    <h1 class="auth-title">Sign In</h1>
+                    <h1 class="auth-title-login">Sign In</h1>
                     <p class="auth-message">Please fill in this form to login to your account.</p>
                     <hr class="line-break" />
                     <label for="username"><b><%=rb.getString("username") %></b><span class="required-field"> *</span></label>
@@ -38,7 +53,7 @@
                     <label> <input type="checkbox" class="checkbox" checked="checked" name="rememberme" value="1"
                                    style="margin-bottom: 15px" /> Remember me <span></span></label>
 
-                    <p>Don't have an account ? <a href="register.jsp" id="sign-up-switch" class="auth-link">Sign
+                    <p class="auth-message">Don't have an account ? <a href="register.jsp" id="sign-up-switch" class="auth-link">Sign
                         up</a></p>
             </div>
             <button type="submit" id="button" class="auth-button"><i id="auth-icon"
@@ -48,39 +63,8 @@
             <a href="forget.jsp" id="forget-password-link" class="auth-link forget-link">Forget Password ?</a>
         </div>
     </div>
-    <div class="auth-container-right">
-        <div class="auth-page-hero-flex">
-            <div class="auth-hero-container">
-                <div class="auth-hero-bg-rounded"></div>
-                <img class="auth-hero-image" src="https://i.imgur.com/wrqF9dW.png" alt="" />
-            </div>
-            <div class="auth-hero-body">
-                <h1>Fresh <span>Grocery</span><br />Shopping</h1>
-                <p>100 Healthy & Affortable</p>
-                <button class="hero-button">Shop Now</button>
-            </div>
-        </div>
 
-        <!-- <div class="hero-flex">
-            <div class="hero-left-box">
-              <h1>Fresh <span>Grocery</span><br />Shopping</h1>
-              <p>100 Healthy & Affortable</p>
-              <button class="hero-button">Shop Now</button>
-            </div>
-            <div class="hero-round-bg"></div>
-            <div class="hero-right-box">
-              <img class="hero-image" src="https://i.imgur.com/wrqF9dW.png" alt="" />
-            </div> -->
-        <!-- <img class="hero-leaf1" src="https://i.imgur.com/3uScmSk.png" alt="" />
-            <img class="hero-leaf2" src="https://i.imgur.com/3uScmSk.png" alt="" />
-            <img class="hero-leaf3" src="https://i.imgur.com/3uScmSk.png" alt="" /> -->
-        <!-- </div> -->
-        <!-- <div class="number-input">
-<button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</button>
-<input class="quantity" maxlength="2" min="0" max="10" name="%s" value="0" type="number" form="main-form" />
-<button type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus">+</button>
-</div> -->
-    </div>
+
 </div>
 </body>
 

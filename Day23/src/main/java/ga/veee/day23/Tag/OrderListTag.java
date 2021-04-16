@@ -7,6 +7,7 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Properties;
@@ -25,6 +26,9 @@ public class OrderListTag extends TagSupport {
                     add("uname");
                     add("lang");
                     add("rb");
+                    add("limit");
+                    add("category");
+                    add("userId");
                 }};
                 if (!whiteList.contains(name)) {
                     String value = (String) pageContext.getSession().getAttribute(name);

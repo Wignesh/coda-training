@@ -52,6 +52,33 @@ public class ItemDAOImpl implements ItemDAO, Cloneable {
                 item.setImageUrl(resultSet.getString(6));
                 items.add(item);
             }
+            ConnectionManager.closeConnection(null,null);
+            return items;
+
+        } catch (Exception e) {
+            ConnectionManager.closeConnection(e, null);
+        }
+        return null;
+    }
+
+    @Override
+    public Set<ItemDTO> findAll(int limit) {
+        try {
+            Connection connection = ConnectionManager.getConnection(dbConfigProp);
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM ITEM_MASTER LIMIT ?");
+            statement.setInt(1, limit);
+            Set<ItemDTO> items = new HashSet<>();
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                ItemDTO item = new ItemDTO();
+                item.setItemId(resultSet.getInt(1));
+                item.setDescription(resultSet.getString(2));
+                item.setPrice(resultSet.getFloat(3));
+                item.setCategory(resultSet.getString(4));
+                item.setUnit(resultSet.getString(5));
+                item.setImageUrl(resultSet.getString(6));
+                items.add(item);
+            }
             return items;
 
         } catch (Exception e) {
@@ -66,6 +93,33 @@ public class ItemDAOImpl implements ItemDAO, Cloneable {
             Connection connection = ConnectionManager.getConnection(dbConfigProp);
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM ITEM_MASTER WHERE CATEGORY = ?");
             statement.setString(1, category);
+            Set<ItemDTO> items = new HashSet<>();
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                ItemDTO item = new ItemDTO();
+                item.setItemId(resultSet.getInt(1));
+                item.setDescription(resultSet.getString(2));
+                item.setPrice(resultSet.getFloat(3));
+                item.setCategory(resultSet.getString(4));
+                item.setUnit(resultSet.getString(5));
+                item.setImageUrl(resultSet.getString(6));
+                items.add(item);
+            }
+            return items;
+
+        } catch (Exception e) {
+            ConnectionManager.closeConnection(e, null);
+        }
+        return null;
+    }
+
+    @Override
+    public Set<ItemDTO> findAllByCat(String category, int limit) {
+        try {
+            Connection connection = ConnectionManager.getConnection(dbConfigProp);
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM ITEM_MASTER WHERE CATEGORY = ? LIMIT ?");
+            statement.setString(1, category);
+            statement.setInt(2, limit);
             Set<ItemDTO> items = new HashSet<>();
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {

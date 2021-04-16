@@ -42,8 +42,9 @@ public class InvoiceItem {
         this.total = total;
     }
 
-    public InvoiceItem(String description, int quantity, int itemId, float unitPrice) {
+    public InvoiceItem(String description, String imageURL, int quantity, int itemId, float unitPrice) {
         this.description = description;
+        this.imageURL = imageURL;
         this.quantity = quantity;
         this.itemId = itemId;
         this.unitPrice = unitPrice;
@@ -51,6 +52,16 @@ public class InvoiceItem {
     }
 
     private String description;
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    private String imageURL;
     private int quantity, itemId;
     private float unitPrice, total;
 

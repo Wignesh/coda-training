@@ -1,4 +1,4 @@
-<%--
+<%@ taglib prefix="Shop" uri="/WEB-INF/Shop.tld" %><%--
   Created by IntelliJ IDEA.
   User: vignesh
   Date: 12/04/21
@@ -12,7 +12,9 @@
 </head>
 <body>
 <%
-    System.out.println(session.toString());
+
+
 %>
+<Shop:ProcessOrder/>
 </body>
 </html>

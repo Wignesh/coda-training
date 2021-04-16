@@ -21,6 +21,16 @@ public class ItemListTag extends TagSupport {
 
     private String category;
 
+    public String getLimit() {
+        return limit;
+    }
+
+    public void setLimit(String limit) {
+        this.limit = limit;
+    }
+
+    private String limit;
+
 
     @Override
     public int doEndTag() throws JspException {
@@ -28,9 +38,9 @@ public class ItemListTag extends TagSupport {
         ItemDAOImpl itemDAOImpl = ItemDAOImpl.getItemDaoImpl(dbConfigProp);
         Set<ItemDTO> items;
         if (category.equals("*")) {
-            items = itemDAOImpl.findAll();
+            items = itemDAOImpl.findAll(Integer.parseInt(limit));
         } else {
-            items = itemDAOImpl.findAllByCat(category);
+            items = itemDAOImpl.findAllByCat(category,Integer.parseInt(limit));
         }
         JspWriter out = pageContext.getOut();
         for (ItemDTO item : items) {
@@ -69,37 +79,8 @@ public class ItemListTag extends TagSupport {
                         "            <div class=\"product-price\">\n" +
                         "                &#8377; %s / %s\n" +
                         "            </div>\n" +
-                        "        </div>",item.getItemId(),item.getItemId(),item.getImageUrl(),item.getDescription(),item.getPrice(),item.getUnit()));
+                        "        </div>", item.getItemId(), item.getItemId(), item.getImageUrl(), item.getDescription(), item.getPrice(), item.getUnit()));
 
-//                out.println(String.format("<div class=\"item %s\">\n" +
-//                        "          <div class=\"item-image\">\n" +
-//                        "            <img class=\"image\" src=\"%s\" alt=\"%s\" />\n" +
-//                        "          </div>\n" +
-//                        "          <div class=\"item-info\">\n" +
-//                        "            <h4 class=\"item-title\">%s</h4>\n" +
-//                        "            <h5 class=\"item-price\">&#8377; %s / %s</h5>\n" +
-//                        "            <div class=\"rating\">\n" +
-//                        "              <span class=\"fa fa-star checked\"></span>\n" +
-//                        "              <span class=\"fa fa-star checked\"></span>\n" +
-//                        "              <span class=\"fa fa-star checked\"></span>\n" +
-//                        "              <span class=\"fa fa-star\"></span>\n" +
-//                        "              <span class=\"fa fa-star\"></span>\n" +
-//                        "              <span>330</span>\n" +
-//                        "            </div>\n" +
-//                        "            <div class=\"qty\">\n" +
-//                        "              <form action=\"shop.do\" method=\"POST\">\n" +
-//                        "                <div class=\"number-input\">\n" +
-//                        "                  <button type=\"button\" onclick=\"this.parentNode.querySelector('input[type=number]').stepDown()\"></button>\n" +
-//                        "                  <input class=\"quantity\" min=\"0\" max=\"10\" name=\"%s\" value=\"0\" type=\"number\" form=\"main-form\" />\n" +
-//                        "                  <button type=\"button\" onclick=\"this.parentNode.querySelector('input[type=number]').stepUp()\" class=\"plus\"></button>\n" +
-//                        "                </div>\n" +
-//                        "                <input type=\"hidden\" name=\"formId\" value=\"Shop\" />\n" +
-//                        "                <input type=\"hidden\" name=\"shopId\" value=\"shop3\" />\n" +
-//                        "                <button type=\"submit\" class=\"add\">+ ADD</button>\n" +
-//                        "              </form>\n" +
-//                        "            </div>\n" +
-//                        "          </div>\n" +
-//                        "        </div>", itemCategory.equals("VEGETABLE") ? "vegetable" : itemCategory.equals("FRUIT") ? "fruit" : "grocery", item.getImageUrl(), item.getDescription(), item.getDescription(), item.getPrice(), item.getUnit(), item.getItemId()));
             } catch (IOException e) {
                 e.printStackTrace();
             }

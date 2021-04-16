@@ -1,6 +1,7 @@
 package ga.veee.day23.control;
 
 import ga.veee.day23.daopack.UserDAOImpl;
+import ga.veee.day23.daopack.UserDTO;
 import ga.veee.day23.servicepack.LoginServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,12 +25,15 @@ public class LoginAction extends Action {
         LoginServiceImpl loginService = LoginServiceImpl.getLoginService();
         loginService.setUserDAO(UserDAOImpl.getUserDaoImpl(dbConfigProp));
         HttpSession session = request.getSession();
+        UserDTO userDTO = loginService.getUserByUP(uname, upass);
 
         if (loginService.checkUser(uname, upass)) {
             if (loginService.checkFlag(uname)) {
                 loginService.updateFlag(uname, 1);
                 session.setAttribute("uname", uname);
-
+                if (userDTO != null) {
+                    session.setAttribute("userId", String.valueOf(userDTO.getUid()));
+                }
                 return "login.success";
             } else {
                 return "login.already";

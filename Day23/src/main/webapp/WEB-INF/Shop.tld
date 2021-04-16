@@ -14,6 +14,11 @@
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
+        <attribute>
+            <name>limit</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
 
     </tag>
     <tag>
@@ -24,6 +29,31 @@
     <tag>
         <name>OrderList</name>
         <tag-class>ga.veee.day23.Tag.OrderListTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    <tag>
+        <name>ProcessOrder</name>
+        <tag-class>ga.veee.day23.Tag.ProcessOrderTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    <tag>
+        <name>MyOrders</name>
+        <tag-class>ga.veee.day23.Tag.MyOrdersTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    <tag>
+        <name>HTMLInvoice</name>
+        <tag-class>ga.veee.day23.Tag.HTMLInvoiceTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    <tag>
+        <name>PDFExport</name>
+        <tag-class>ga.veee.day23.Tag.PDFExportTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    <tag>
+        <name>ExcelExport</name>
+        <tag-class>ga.veee.day23.Tag.ExcelExportTag</tag-class>
         <body-content>empty</body-content>
     </tag>
 </taglib>

@@ -10,9 +10,21 @@
     <title>Signup</title>
 
 <body>
-<div class="auth-page auth-page-color-1">
-
-    <div class="auth-container-left">
+<div class="auth-page">
+    <div class="auth-container-right">
+        <div class="auth-page-hero-flex">
+            <div class="auth-hero-container">
+                <div class="auth-hero-bg-rounded"></div>
+                <img class="auth-hero-image" src="https://i.imgur.com/wrqF9dW.png" alt="" />
+            </div>
+            <div class="auth-hero-body">
+                <h1>Fresh <span>Grocery</span><br />Shopping</h1>
+                <p>100 Healthy & Affortable</p>
+                <button class="hero-button">Shop Now</button>
+            </div>
+        </div>
+    </div>
+    <div class="auth-container-left ">
         <div class="auth-container">
             <div class="signup-container" id="signup-container">
                 <form id="signupForm" action="register.do" method="POST" onsubmit="submitSignUpForm(event)">
@@ -55,19 +67,7 @@
             <a href="forget.jsp" id="forget-password-link" class="auth-link forget-link">Forget Password ?</a>
         </div>
     </div>
-    <div class="auth-container-right">
-        <div class="auth-page-hero-flex">
-            <div class="auth-hero-container">
-                <div class="auth-hero-bg-rounded"></div>
-                <img class="auth-hero-image" src="https://i.imgur.com/wrqF9dW.png" alt="" />
-            </div>
-            <div class="auth-hero-body">
-                <h1>Fresh <span>Grocery</span><br />Shopping</h1>
-                <p>100 Healthy & Affortable</p>
-                <button class="hero-button">Shop Now</button>
-            </div>
-        </div>
-    </div>
+
 
 </div>
 </body>

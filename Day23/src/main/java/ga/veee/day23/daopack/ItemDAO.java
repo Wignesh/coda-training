@@ -9,8 +9,11 @@ public interface ItemDAO {
     public ItemDTO findById(int itemId);
 
     public Set<ItemDTO> findAll();
+    public Set<ItemDTO> findAll(int limit);
 
     public Set<ItemDTO> findAllByCat(String category);
+
+    public Set<ItemDTO> findAllByCat(String category,int limit);
 
     public Set<ItemDTO> findInIds(List<Integer> ids);
 

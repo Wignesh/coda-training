@@ -108,4 +108,28 @@ public class UserDAOImpl implements UserDAO, Cloneable {
         return null;
     }
 
+    @Override
+    public UserDTO getUserByUP(String u, String p) {
+        UserDTO user = new UserDTO();
+        try {
+            Connection connection = ConnectionManager.getConnection(dbConfigProp);
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM USER WHERE USER_NAME=? AND USER_PASSWORD = ?");
+            statement.setString(1, u);
+            statement.setString(2, p);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                user.setUid(resultSet.getInt("USER_ID"));
+                user.setUname(resultSet.getString("USER_NAME"));
+                user.setUpass(resultSet.getString("USER_PASSWORD"));
+                user.setFlag(resultSet.getInt("FLAG"));
+                ConnectionManager.closeConnection(null, null);
+                return user;
+            }
+
+        } catch (Exception e) {
+            ConnectionManager.closeConnection(e, null);
+        }
+        return null;
+    }
+
 }

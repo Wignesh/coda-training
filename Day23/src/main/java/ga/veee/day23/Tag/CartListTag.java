@@ -16,13 +16,16 @@ public class CartListTag extends TagSupport {
         try {
             Enumeration<String> e = pageContext.getSession().getAttributeNames();
             ArrayList<Integer> ids = new ArrayList<>();
+            ArrayList<String> whiteList = new ArrayList<String>(){{
+                add("uname");
+                add("lang");
+                add("rb");
+                add("limit");
+                add("category");
+                add("userId");
+            }};
             while (e.hasMoreElements()) {
                 String name = e.nextElement();
-                ArrayList<String> whiteList = new ArrayList<String>(){{
-                    add("uname");
-                    add("lang");
-                    add("rb");
-                }};
                 if (!whiteList.contains(name)) {
                     String value = (String) pageContext.getSession().getAttribute(name);
                     ids.add(Integer.parseInt(name));
@@ -80,9 +83,9 @@ public class CartListTag extends TagSupport {
                             "                <div class=\"cart-div-action\"></div>\n" +
                             "            </div>", subTotal));
 
-                    out.println("<div class=\"cart-body clear-shadow\">\n" +
+                    out.println(String.format("<div class=\"cart-body clear-shadow\">\n" +
                             "                <div class=\"cart-div-image\"></div>\n" +
-                            "                <div class=\"cart-div-unit-price cart-color-reset\"></div>\n" +
+                            "                <div class=\"cart-div-unit-price cart-color-reset\">                    <a href=\"welcome.jsp#products \" class=\"cart-button\"><i class=\"fa fa-plus\" aria-hidden=\"true\"></i> Add More Items</a>\n</div>\n" +
                             "                <div class=\"cart-div-quantity\">\n" +
                             "    <form action=\"shop.do\" method=\"POST\" id=\"main-form\">\n" +
                             "\n" +
@@ -97,13 +100,12 @@ public class CartListTag extends TagSupport {
                             "\n" +
                             "                <div class=\"cart-div-description cart-button-right\">\n" +
                             "                    <a href=\"checkout.jsp\" class=\"cart-button cart-button-checkout\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n" +
-                            "                        Proceed To\n" +
-                            "                        Checkout</a>\n" +
+                            "                        %s</a>\n" +
                             "                </div>\n" +
                             "\n" +
                             "\n" +
                             "                <div class=\"cart-div-action\"></div>\n" +
-                            "            </div>");
+                            "            </div>",pageContext.getSession().getAttribute("uname") == null ? "Login To Checkout" : "Proceed To Checkout"));
                 }
             }
         } catch (IOException e) {

@@ -85,4 +85,9 @@ public class LoginServiceImpl implements LoginService, Cloneable {
         return n;
     }
 
+    @Override
+    public UserDTO getUserByUP(String u, String p) {
+        return userDAO.getUserByUP(u, p);
+    }
+
 }

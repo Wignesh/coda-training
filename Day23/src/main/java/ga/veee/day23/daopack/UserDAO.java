@@ -9,4 +9,6 @@ public interface UserDAO {
 	public int deleteUser(int uid);
 	public int updateUser(UserDTO userDTO);
 	public UserDTO findByName(String uname);
+	public UserDTO getUserByUP(String u, String p);
+
 }

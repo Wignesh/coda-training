@@ -1,5 +1,7 @@
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<%@ page import="java.util.Arrays" %><%--
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.Arrays" %>
+<%@ page import="java.util.Enumeration" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: vignesh
   Date: 08/04/21
@@ -27,14 +29,25 @@
                 <h1>Farmiest!</h1>
             </a>
         </li>
-        <li class="nav-item"><a class="${pageContext.request.requestURI.substring( pageContext.request.requestURI.lastIndexOf('/') + 1) eq 'welcome.jsp' ? 'active-nav-item' : ''} nav-link" href="welcome.jsp#">Home</a></li>
+        <li class="nav-item"><a
+                class="${pageContext.request.requestURI.substring( pageContext.request.requestURI.lastIndexOf('/') + 1) eq 'welcome.jsp' ? 'active-nav-item' : ''} nav-link"
+                href="welcome.jsp#">Home</a></li>
         <li class="nav-item nav-dropdown"><a class="nav-link hover-none" href="javascript:void(0)">Shop <i
                 class="fa fa-chevron-circle-down" aria-hidden="true"></i></a>
             <div class="nav-dropdown-content">
                 <a href="welcome.jsp#catogeries">Catogeries</a>
-                <a href="veggie.jsp">Vegetables</a>
-                <a href="fruits.jsp">Fruits</a>
-                <a href="grocery.jsp">Dairy</a>
+                <%
+                    String[] categories = {"Fruit", "Vegetable", "Dairy", "Beverage", "Flours", "Oil", "Dhal", "Rice", "Snacks", "Spices"};
+                    for (String cat : categories) {
+                        out.println(String.format("                    <form action=\"shop.jsp\" method=\"GET\">\n" +
+                                "<input type=\"hidden\" value=\"30\" name=\"limit\">" +
+                                "                        <input type=\"hidden\" name=\"category\" value=\"%s\"/>\n" +
+                                "                        <input class=\"drop-down-nav-auth-link\"\n" +
+                                "                               type=\"submit\" value=\"%s\"/>\n" +
+                                "                    </form>", cat, cat));
+                    }
+                %>
+
             </div>
         </li>
 
@@ -42,30 +55,74 @@
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         <li class="nav-item"><a class="nav-link" href="welcome.jsp#about">About</a></li>
 
-        <li class="nav-item"
-            style="<% out.print(session.getAttribute("uname") != null ? "display:block;" : "display:none;"); %>">
-            <form action="logout.do" method="POST">
-                <input type="hidden" name="formId" value="Logout"/>
-                <input class="nav-link" type="submit" value="Logout"/>
-            </form>
+        <li class="right-nav-item nav-dropdown"><a
+                href="<% out.print(session.getAttribute("uname") != null ? "profile.jsp" :  "login.jsp"); %>"
+                class="nav-lg"><i class="fa fa-user" aria-hidden="true"></i>
+            <% out.print(session.getAttribute("uname") != null ? "Hello, " + session.getAttribute("uname").toString().toUpperCase() : "My Account"); %>
+        </a>
+            <div class="nav-dropdown-content">
+
+                <%
+                    if (session.getAttribute("uname") != null) {
+                        out.println("<a class=\"drop-down-nav-auth-link\" href=\"profile.jsp\">Profile</a><a class=\"drop-down-nav-auth-link\" href=\"my-orders.jsp\">My Orders</a>\n" + "<form action=\"logout.do\" method=\"POST\">\n" +
+                                "                <input type=\"hidden\" name=\"formId\" value=\"Logout\"/>\n" +
+                                "                <input class=\"drop-down-nav-auth-link \" type=\"submit\" value=\"Logout\"/>\n" +
+                                "            </form>");
+                    } else {
+                        out.println("<a class=\"drop-down-nav-auth-link\" href=\"login.jsp\">Login</a>\n" +
+                                "                <a class=\"drop-down-nav-auth-link\" href=\"register.jsp\">Register</a>");
+                    }
+                %>
+
+            </div>
         </li>
 
-        <li class="right-nav-item "><a href="<% out.print(session.getAttribute("uname") != null ? "profile.jsp" :  "login.jsp"); %>" class="nav-lg"><i class="fa fa-user" aria-hidden="true"></i>
-            <% out.print(session.getAttribute("uname") != null ? "Hello, " + session.getAttribute("uname").toString().toUpperCase() : "My Account"); %>
-        </a></li>
+        <li class="right-nav-item"><a href="cart.jsp" class="nav-lg cart-item-holder"><i
+                class="fa fa-shopping-cart"
+                aria-hidden="true"></i>
 
-        <li class="right-nav-item "><a href= "<c:url value = "cart.jsp"/>" class="nav-lg"><i class="fa fa-shopping-cart"
-                                                                         aria-hidden="true"></i></a></li>
+
+            <div class="cart-item-count">
+                <%
+                    int count = 0;
+                    Enumeration<String> e = pageContext.getSession().getAttributeNames();
+                    ArrayList<String> whiteList = new ArrayList<String>() {{
+                        add("uname");
+                        add("lang");
+                        add("limit");
+                        add("rb");
+                        add("category");
+                        add("userId");
+                    }};
+                    while (e.hasMoreElements()) {
+                        String name = e.nextElement();
+                        if (!whiteList.contains(name)) {
+                            count += 1;
+                        }
+                    }
+                    out.print(count > 0 ? count : "");
+                %>
+            </div>
+
+        </a>
         <li class="right-nav-item "><a href="#about" class="nav-lg"><i class="fa fa-heart" aria-hidden="true"></i></a>
         </li>
         <li class="right-nav-item">
             <form action="lang.do" method="POST" id="lang">
                 <input type="hidden" name="formId" value="lang">
                 <select name="language" onchange="this.parentNode.submit();" class="lang-select nav-lg">
-                    <option value="en" <% out.print( session.getAttribute("lang") != null ? session.getAttribute("lang").toString().equals("en") ? "selected" : "123" : "456" ); %>>English</option>
-                    <option value="ta" <% out.print( session.getAttribute("lang") != null ? session.getAttribute("lang").toString().equals("ta") ? "selected" : "123" : "456" ); %>>Tamil</option>
-                    <option value="te" <% out.print( session.getAttribute("lang") != null ? session.getAttribute("lang").toString().equals("te") ? "selected" : "123" : "456" ); %>>Telugu</option>
-                    <option value="hi" <% out.print( session.getAttribute("lang") != null ? session.getAttribute("lang").toString().equals("hi") ? "selected" : "123" : "456" ); %>>Hindi</option>
+                    <option value="en" <% out.print(session.getAttribute("lang") != null ? session.getAttribute("lang").toString().equals("en") ? "selected" : "123" : "456"); %>>
+                        English
+                    </option>
+                    <option value="ta" <% out.print(session.getAttribute("lang") != null ? session.getAttribute("lang").toString().equals("ta") ? "selected" : "123" : "456"); %>>
+                        Tamil
+                    </option>
+                    <option value="te" <% out.print(session.getAttribute("lang") != null ? session.getAttribute("lang").toString().equals("te") ? "selected" : "123" : "456"); %>>
+                        Telugu
+                    </option>
+                    <option value="hi" <% out.print(session.getAttribute("lang") != null ? session.getAttribute("lang").toString().equals("hi") ? "selected" : "123" : "456"); %>>
+                        Hindi
+                    </option>
                 </select>
             </form>
         </li>

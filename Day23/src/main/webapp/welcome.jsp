@@ -1,4 +1,4 @@
-<%@ page import="java.util.ResourceBundle" %>
+    <%@ page import="java.util.ResourceBundle" %>
 <%@ page import="java.util.Locale" %>
 <%@ taglib prefix="Shop" uri="/WEB-INF/Shop.tld" %>
 <%--
@@ -32,7 +32,7 @@
         <div class="hero-left-box">
             <h1><%=rb.getString("hero1") %> <span><%=rb.getString("hero2") %></span><br/><%=rb.getString("hero3") %></h1>
             <p>100 Healthy & Affortable</p>
-            <button class="hero-button">Shop Now</button>
+            <a href="welcome.jsp#products" class="hero-button">Shop Now</a>
         </div>
         <div class="hero-round-bg"></div>
         <div class="hero-right-box">
@@ -129,7 +129,7 @@
         <input type="hidden" name="formId" value="Shop"/>
         <input type="hidden" name="shopId" value="shop1"/>
         <div class="product-items">
-            <Shop:ItemList category="FRUIT"/>
+            <Shop:ItemList category="*" limit="10"/>
         </div>
     </form>
 </section>

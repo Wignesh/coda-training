@@ -12,6 +12,7 @@ import java.io.IOException;
 public class MySessionFilter implements Filter {
     public void destroy() {
         System.out.println("destroy filter called...");
+
     }
 
     /**

@@ -16,23 +16,24 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class Excel {
-    Invoice invoice = new Invoice();
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
+    }
+
+    Invoice invoice;
 
     public Excel() {
     }
 
-    public Invoice getInvoice() {
-        return this.invoice;
-    }
 
-    public void printInvoice() throws IOException, InvalidFormatException {
+    public Workbook printInvoice(String filePath,String logoPath) throws IOException, InvalidFormatException {
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet("Invoice");
         sheet.getPrintSetup().setPaperSize(PrintSetup.A4_PAPERSIZE);
         sheet.setFitToPage(true);
         int rowId = 0;
         rowId = drawLine(workbook, sheet, rowId);
-        company(sheet, invoice);
+        company(sheet, invoice,logoPath);
         billTo(sheet, invoice);
         shipTo(sheet, invoice);
         tableHeader(sheet);
@@ -48,12 +49,15 @@ public class Excel {
                 60  //end row
         );
         format(sheet);
-
-        FileOutputStream fileOut = new FileOutputStream("Invoice.xlsx");
-        workbook.write(fileOut);
-        fileOut.close();
-
+        try {
+            FileOutputStream fileOut = new FileOutputStream(filePath );
+            workbook.write(fileOut);
+            fileOut.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         workbook.close();
+        return workbook;
     }
 
     public static int drawLine(Workbook workbook, Sheet sheet, int rowId) {
@@ -259,7 +263,7 @@ public class Excel {
 
     }
 
-    public static void company(Sheet sheet, Invoice invoice) throws IOException {
+    public static void company(Sheet sheet, Invoice invoice, String logoPath) throws IOException {
         Row row = sheet.createRow(3);
         Cell cell = row.createCell(0);
         addText("INVOICE", sheet, cell, true, 28, HorizontalAlignment.LEFT, VerticalAlignment.CENTER, IndexedColors.WHITE);
@@ -270,7 +274,8 @@ public class Excel {
 
         CellRangeAddress cellMerge = new CellRangeAddress(3, 3, 1, 13);
         sheet.addMergedRegion(cellMerge);
-        InputStream inputStream = new FileInputStream("logo.png");
+
+        InputStream inputStream = new FileInputStream(logoPath);
         byte[] bytes = IOUtils.toByteArray(inputStream);
         int pictureIdx = sheet.getWorkbook().addPicture(bytes, Workbook.PICTURE_TYPE_PNG);
         inputStream.close();
@@ -282,6 +287,7 @@ public class Excel {
         anchor.setCol2(13);
         anchor.setRow2(4);
         Picture pict = drawing.createPicture(anchor, pictureIdx);
+
         cell = sheet.getRow(3).createCell(12);
         int widthUnits = 25 * 128;
         sheet.setColumnWidth(5, widthUnits);
@@ -368,7 +374,7 @@ public class Excel {
         addText(":", sheet, cell, false, 16, HorizontalAlignment.LEFT, VerticalAlignment.BOTTOM, IndexedColors.WHITE);
 
         cell = row.createCell(9);
-        addText(invoice.getInvoiceDueDate().toString(), sheet, cell, false, 14, HorizontalAlignment.LEFT, VerticalAlignment.BOTTOM, IndexedColors.WHITE);
+        addText("", sheet, cell, false, 14, HorizontalAlignment.LEFT, VerticalAlignment.BOTTOM, IndexedColors.WHITE);
         sheet.autoSizeColumn(9);
 
         row = sheet.getRow(9);

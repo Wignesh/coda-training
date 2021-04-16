@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+</head>
+
+<body style="position: relative;width: 21cm;height: 29.7cm;margin: 0 auto;color: #001028;background: #FFFFFF;font-family: 'Rubik', sans-serif;font-size: 12px;">
+
+<header style="padding: 5px 0;background-color: #f1f1f1;border-top: 5px solid #438343;">
+    <div style="padding: 1em">
+        <table style="width: 100%">
+            <tr>
+                <td>
+                    <h1>Invoice # %s</h1>
+                    <h3>%s</h3>
+                </td>
+                <td style="text-align: right">
+                    <img style="width: 90px" src="https://i.imgur.com/7VaLspM.png"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="padding: 0 1em; background-color: #f1f1f1;border-top: 2px solid #438343;">
+        <table style="width: 100%">
+            <tr style="width: 100%;">
+                <td style="width: 65%">
+                    <table>
+                        <tr>
+                            <td>
+                                <h3 style="line-height: 1;margin: 8px 0">
+                                    Farmiest PVT LTD
+                                </h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4 style="margin: 3px 0;line-height: 1;">
+                                    123, A Street,
+                                </h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4 style="margin: 3px 0;line-height: 1;">
+                                    Coimbatore, TamilNadu,
+                                </h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4 style="margin: 3px 0;line-height: 1;">
+                                    INDIA - 641050
+                                </h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4 style="margin: 3px 0;line-height: 1;">
+                                    <a href="mailto:info@formiest.com">info@formiest.com</a>
+                                </h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4 style="margin: 3px 0;line-height: 1;">
+                                    PAN No: AALCA0171E
+                                </h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4 style="margin: 3px 0;line-height: 1;">
+                                    GST Registration No: 36AALCA0171E1Z0
+                                </h4>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="width: 35%">
+                    <table>
+                        <tr>
+                            <td><h4>Invoice No</h4></td>
+                            <td>:</td>
+                            <td><h4>%s</h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Invoice Date</h4></td>
+                            <td>:</td>
+                            <td><h4>%s</h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Due Date</h4></td>
+                            <td>:</td>
+                            <td><h4>%s</h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Comment</h4></td>
+                            <td>:</td>
+                            <td><h4>%s</h4></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="padding: 0 1em; background-color: #f1f1f1;border-top: 2px solid #438343;">
+        <table style="width: 100%">
+            <tr>
+                <td style="width: 50%">
+                    <table style="width: 100%">
+                        <tr>
+                            <td>
+                                <h3 style="line-height: 1;margin: 8px 0">Billing Address</h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><h4 style="line-height: 1;margin: 3px 0">
+                                %s
+                            </h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4 style="line-height: 1;margin: 3px 0">
+                                %s,
+                            </h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4 style="line-height: 1;margin: 3px 0">
+                                %s, %s,
+                            </h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4 style="line-height: 1;margin: 3px 0">
+                                %s - %s
+                            </h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4 style="line-height: 1;margin: 3px 0">
+                                <a href="tel:%s">%s</a>
+                            </h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4 style="line-height: 1;margin: 3px 0">
+                                <a href="mailto:%s">%s</a>
+                            </h4></td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="width: 50%">
+                    <table style="width: 100%">
+                        <tr>
+                            <td>
+                                <h3 style="line-height: 1;margin: 8px 0">Shipping Address</h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><h4 style="line-height: 1;margin: 3px 0">
+                                %s
+                            </h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4 style="line-height: 1;margin: 3px 0">
+                                %s,
+                            </h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4 style="line-height: 1;margin: 3px 0">
+                                %s, %s,
+                            </h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4 style="line-height: 1;margin: 3px 0">
+                                %s - %s
+                            </h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4 style="line-height: 1;margin: 3px 0">
+                                <a href="tel:%s">%s</a>
+                            </h4></td>
+                        </tr>
+                        <tr>
+                            <td><h4 style="line-height: 1;margin: 3px 0">
+                                <a href="mailto:%s">%s</a>
+                            </h4></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+<main style="background-color: #FFFFFF;border-top: 2px solid #438343;">
+    <table style="width: 100%;border-bottom: 2px solid #438343;border-spacing: 0">
+        <thead style="width: 100%;background-color: #f1f1f1">
+        <tr>
+            <th style="padding: 5px 20px;color: #2e2222;font-size: 1.2em;font-weight: bold;border-bottom: 2px solid #438343;white-space: nowrap;text-align: center">
+                SI
+            </th>
+            <th style="padding: 5px 20px;color: #2e2222;font-size: 1.2em;font-weight: bold;border-bottom: 2px solid #438343;white-space: nowrap;text-align: center">
+                IMAGE
+            </th>
+            <th style="padding: 5px 20px;color: #2e2222;font-size: 1.2em;font-weight: bold;border-bottom: 2px solid #438343;white-space: nowrap;text-align: center">
+                DESCRIPTION
+            </th>
+            <th style="padding: 5px 20px;color: #2e2222;font-size: 1.2em;font-weight: bold;border-bottom: 2px solid #438343;white-space: nowrap;text-align: center">
+                PRICE
+            </th>
+            <th style="padding: 5px 20px;color: #2e2222;font-size: 1.2em;font-weight: bold;border-bottom: 2px solid #438343;white-space: nowrap;text-align: center">
+                QTY
+            </th>
+            <th style="padding: 5px 20px;color: #2e2222;font-size: 1.2em;font-weight: bold;border-bottom: 2px solid #438343;white-space: nowrap;text-align: center">
+                TOTAL
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+            <td style="font-weight: 500;padding: 20px;color: #5D6975;text-align: center;">%s</td>
+            <td style="font-weight: 500;padding: 20px;color: #5D6975;text-align: center;">
+                <img style="width: 60px"
+                     src="%s"
+                     alt="%s"></td>
+            <td style="font-weight: 500;padding: 20px;color: #5D6975;text-align: left;">%s</td>
+            <td style="font-weight: 500;padding: 20px;color: #5D6975;text-align: center;font-size: 1.2em;">%s</td>
+            <td style="font-weight: 500;padding: 20px;color: #5D6975;text-align: center;font-size: 1.2em;">%s</td>
+            <td style="font-weight: 500;padding: 20px;color: #5D6975;text-align: center;font-size: 1.2em;">%s</td>
+        </tr>
+
+        <tr>
+            <td colspan="5" style="font-weight: 500;padding: 20px;text-align: right;font-size: 1.2em">SUBTOTAL</td>
+            <td colspan="1" style="font-weight: 500;padding: 20px;text-align: center;font-size: 1.4em;color: green">
+                %s
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" style="font-weight: 500;padding: 20px;text-align: right;font-size: 1.2em">DISCOUNT</td>
+            <td colspan="1" style="font-weight: 500;padding: 20px;text-align: center;font-size: 1.4em;color: red"> -
+                %s
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" style="font-weight: 500;padding: 20px;text-align: right;font-size: 1.2em">CGST 9.0%</td>
+            <td colspan="1" style="font-weight: 500;padding: 20px;text-align: center;font-size: 1.4em;color: green"> +
+                %s
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" style="font-weight: 500;padding: 20px;text-align: right;font-size: 1.2em">SGST 9.0%</td>
+            <td colspan="1" style="font-weight: 500;padding: 20px;text-align: center;font-size: 1.4em;color: green"> +
+                %s
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" style="font-weight: 500;padding: 20px;text-align: right;font-size: 1.2em">SHIPPING</td>
+            <td colspan="1" style="font-weight: 500;padding: 20px;text-align: center;font-size: 1.4em;color: green"> +
+                %s
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5"
+                style="border-top: 1px solid #5D6975;padding: 20px;text-align: right;border-bottom: 1px solid #5D6975;color: #222222;font-size: 1.2em !important;font-weight: bolder !important;">
+                GRAND TOTAL
+            </td>
+            <td colspan="1"
+                style="border-top: 1px solid #5D6975;padding: 20px;text-align: center;border-bottom: 1px solid #5D6975;color: #EB7057;font-size: 1.2em !important;font-weight: bolder !important;">
+                %s
+            </td>
+        </tr>
+        <tr style="background-color: #FFFFFF;">
+            <td colspan="4"></td>
+            <td colspan="2" style="padding: 20px;">
+                <img width="180px" src="http://i.imgur.com/o5M9z2B.png" alt="Authorized Signatory">
+                <p style="text-align: center">Authorized Signatory</p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+<footer style="color: #5D6975;width: 100%;height: 30px;position: absolute;bottom: 0;right: 0;left: 0;border-top: 1px solid #C1CED9;padding: 8px 0;text-align: center;">
+    Thank You!
+</footer>
+</body>
+
+</html>
