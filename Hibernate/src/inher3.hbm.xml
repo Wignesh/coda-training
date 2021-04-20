@@ -1,0 +1,29 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="ga.veee.hibernate.inherpack.ShoeFactory" table="shoetable3">
+        <id name="sid" type="int" unsaved-value="0">
+            <generator class="hilo"/>
+        </id>
+        <property name="shoeName" />
+        
+   </class>
+       
+  	<class name="ga.veee.hibernate.inherpack.BataShoeFactory" table="batatable3">
+	  	<id name="sid" type="int" unsaved-value="0">
+            <generator class="hilo"/>
+        </id>
+       <property name="bataName"/>
+    </class>
+      
+    <class name="ga.veee.hibernate.inherpack.LakhaniShoeFactory" table="lakhanitable3">
+      	<id name="sid" type="int" unsaved-value="0">
+            <generator class="hilo"/>
+        </id> 
+      	<property name="lakhaniName" type="string"/>
+    </class>
+	        
+	
+
+</hibernate-mapping>

@@ -1,6 +1,7 @@
 package ga.veee.day23.control;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -9,6 +10,7 @@ import java.io.IOException;
 /**
  * Servlet Filter implementation class MySessionFilter
  */
+@WebFilter("*.do")
 public class MySessionFilter implements Filter {
     public void destroy() {
         System.out.println("destroy filter called...");
