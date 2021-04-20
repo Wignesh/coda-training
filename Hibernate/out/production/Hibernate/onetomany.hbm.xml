@@ -1,0 +1,31 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="ga.veee.hibernate.OneToMany.Employee" table="EMPLOYEE">
+
+        <id name="eid" type="java.lang.Integer">
+            <generator class="hilo"/>
+        </id>
+        <property name="ename"/>
+        <property name="esal"/>
+
+        <set name="addresses" table="ADDRESS" cascade="all" inverse="true" lazy="true">
+            <key column="EMPLOYEE_EID"/>
+            <one-to-many class="ga.veee.hibernate.OneToMany.Address"/>
+        </set>
+
+    </class>
+
+    <class name="ga.veee.hibernate.OneToMany.Address" table="ADDRESS">
+        <id name="aid" type="int" unsaved-value="0">
+            <generator class="hilo"/>
+        </id>
+        <property name="street"/>
+        <property name="city"/>
+        <many-to-one name="emp" column="EMPLOYEE_EID" class="ga.veee.hibernate.OneToMany.Employee"/>
+    </class>
+
+
+</hibernate-mapping>
