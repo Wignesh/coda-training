@@ -92,7 +92,7 @@ body {
 }
 
 .required-field {
-    color: red;
+    color: #ff0000;
 }
 
 .auth-button {
@@ -253,19 +253,19 @@ meter::-webkit-meter-bar {
 
 /* Webkit based browsers */
 meter[value="1"]::-webkit-meter-optimum-value {
-    background: red;
+    background: #ff0000;
 }
 
 meter[value="2"]::-webkit-meter-optimum-value {
-    background: gold;
+    background: #ffd700;
 }
 
 meter[value="3"]::-webkit-meter-optimum-value {
-    background: orange;
+    background: #ffa500;
 }
 
 meter[value="4"]::-webkit-meter-optimum-value {
-    background: green;
+    background: #008000;
 }
 
 /* Gecko based browsers */
@@ -1295,7 +1295,7 @@ nav {
 }
 
 .add-address-button:hover {
-    background-color: crimson;
+    background-color: #dc143c;
     color: #fff;
 }
 
