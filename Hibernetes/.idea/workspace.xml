@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d1889c99-8271-47df-9d4e-ccb26134ea24" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Shop/Entity/BillingAddressEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Shop/Entity/CustomerEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Shop/Entity/InvoiceBlobEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Shop/Entity/InvoiceMasterEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Shop/Entity/InvoiceTransactionEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Shop/Entity/ItemMasterEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Shop/Entity/UserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Shop/Utility/HibernateUtility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/.idea/libraries/Hibernate_5_4_11_5_4_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/Shopping.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/lib/FastInfoset-1.2.15.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/lib/antlr-2.7.7.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/lib/byte-buddy-1.10.7.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/lib/classmate-1.5.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/lib/dom4j-2.1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/lib/hibernate-commons-annotations-5.1.0.Final.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/lib/hibernate-core-5.4.11.Final.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/lib/istack-commons-runtime-3.0.7.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/lib/jandex-2.1.1.Final.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/lib/javassist-3.24.0-GA.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/lib/javax.activation-api-1.2.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/lib/javax.persistence-api-2.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/lib/jaxb-api-2.3.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/lib/jaxb-runtime-2.3.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/lib/jboss-logging-3.3.2.Final.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/lib/jboss-transaction-api_1.2_spec-1.1.1.Final.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/lib/stax-ex-1.8.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/lib/txw2-2.3.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/src/ga/veee/shopping/Entity/BillingAddressEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/src/ga/veee/shopping/Entity/CustomerEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/src/ga/veee/shopping/Entity/InvoiceBlobEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/src/ga/veee/shopping/Entity/InvoiceMasterEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/src/ga/veee/shopping/Entity/InvoiceTransactionEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/src/ga/veee/shopping/Entity/ItemMasterEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/src/ga/veee/shopping/Entity/UserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Shopping/src/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Hibernate_5_4_11_5_4_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Hibernate_5_4_11_5_4_11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hibernetes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernetes.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Hibernate/BillingAddressEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Hibernate/InvoiceBlobEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Hibernate/InvoiceMasterEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Hibernate/InvoiceTransactionEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Hibernate/ItemMasterEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Hibernate/UserEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/HibernateUtility.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Hibernate/BillingAddressEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Hibernate/InvoiceBlobEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Hibernate/InvoiceMasterEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Hibernate/InvoiceTransactionEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Hibernate/ItemMasterEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Hibernate/UserEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Utility/HibernateUtility.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="hibernate-configuration-5.2" />
+        <option value="hibernate-main-5.2" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1rSxbc5Vi7fDV1vyE42Xpee5uoW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="JPA.DatabaseSchemaImportDialog" value="2080eca3-65f8-4131-a921-fd7161c5701b" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/Shop/Utility" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/Shop/Utility" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="Shop" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Test">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Hibernetes" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <module name="Hibernetes" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d1889c99-8271-47df-9d4e-ccb26134ea24" name="Default Changelist" comment="" />
+      <created>1618983364422</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1618983364422</updated>
+      <workItem from="1618983365609" duration="855000" />
+      <workItem from="1618984250005" duration="431000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
