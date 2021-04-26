@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="factory2" class="ga.veee.Spring.factorypack.LakhaniShoeFactory" lazy-init="true"/>
+
+    <bean id="manufacturer" class="ga.veee.Spring.factorypack.BataShoeFactory" lazy-init="true"/>
+
+
+    <bean id="shop" class="ga.veee.Spring.factorypack.SibiShoeShop"
+          lazy-init="true" scope="singleton"
+          init-method="setup"
+          destroy-method="close"
+          autowire="byName"
+    >
+    </bean>
+    <bean id="wadvice" class="ga.veee.Spring.factorypack.WelcomeAdvice"/>
+    <bean id="eadvice" class="ga.veee.Spring.factorypack.ExceptionAdvice"/>
+    <bean id="vadvice" class="ga.veee.Spring.factorypack.ValidationAdvice"/>
+    <bean id="tadvice" class="ga.veee.Spring.factorypack.ThankyouAdvice"/>
+
+    <bean id="advisedShop" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <value>ga.veee.Spring.factorypack.ShoeSeller</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>wadvice</value>
+                <value>eadvice</value>
+                <value>vadvice</value>
+                <value>tadvice</value>
+            </list>
+        </property>
+        <property name="target">
+            <ref bean="shop"/>
+        </property>
+    </bean>
+
+</beans>
