@@ -2,3 +2,6 @@
 *.class
 *.log
 
+/target/
+/.idea/
+/out/
